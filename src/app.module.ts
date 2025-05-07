@@ -9,7 +9,6 @@ import { ReportModule } from './report/report.module';
 import { AuthModule } from './auth/auth.module';
 import { ClerkAuthMiddleware } from './auth/auth.middleware';
 import { ItineraryModule } from './itinerary/itinerary.module';
-import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -24,7 +23,6 @@ import { HealthModule } from './health/health.module';
     SaveModule,
     ReportModule,
     AuthModule,
-    HealthModule,
   ],
 })
 export class AppModule implements NestModule {
