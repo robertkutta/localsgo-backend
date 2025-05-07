@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 async function main() {
   console.log('Seeding database with test data...');
 
-  // Create 5 itineraries in London
+  // Create 10 itineraries in London
   const itineraries = [
     {
       name: 'Historic London Tour',
@@ -52,7 +52,7 @@ async function main() {
     {
       name: 'London Foodie Adventure',
       description: "Explore London's diverse culinary scene and food markets",
-      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2', // Replace with a valid Clerk user ID
+      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2',
       latitude: 51.5107,
       longitude: -0.0859,
       tripTypes: ['leisure', 'couples'],
@@ -92,7 +92,7 @@ async function main() {
     {
       name: 'London Parks & Gardens',
       description: "Discover London's beautiful green spaces and parks",
-      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2', // Replace with a valid Clerk user ID
+      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2',
       latitude: 51.5073,
       longitude: -0.1657,
       tripTypes: ['leisure', 'active', 'family'],
@@ -133,7 +133,7 @@ async function main() {
     {
       name: 'London Coffee Tour',
       description: 'Visit the best specialty coffee shops in London',
-      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2', // Replace with a valid Clerk user ID
+      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2',
       latitude: 51.5228,
       longitude: -0.0818,
       tripTypes: ['leisure'],
@@ -174,7 +174,7 @@ async function main() {
     {
       name: 'London Shopping Trip',
       description: "Explore London's best shopping districts and iconic stores",
-      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2', // Replace with a valid Clerk user ID
+      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2',
       latitude: 51.513,
       longitude: -0.1591,
       tripTypes: ['leisure', 'couples'],
@@ -211,9 +211,209 @@ async function main() {
         },
       ],
     },
+    {
+      name: 'Artistic London Tour',
+      description: 'Discover the best art galleries and creative spaces in London',
+      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2',
+      latitude: 51.5065,
+      longitude: -0.094,
+      tripTypes: ['cultural', 'leisure'],
+      spots: [
+        {
+          name: 'Tate Modern',
+          description: 'Contemporary art gallery housed in a former power station',
+          latitude: 51.5076,
+          longitude: -0.0994,
+          placeId: 'ChIJN1D_mWEDdkgRHwZaTw4W8zc',
+          address: 'Bankside, London SE1 9TG',
+          price: 'Free (some exhibitions may charge)',
+          category: 'cultural',
+        },
+        {
+          name: 'National Gallery',
+          description: 'Art museum housing Western European paintings from the 13th to 19th centuries',
+          latitude: 51.5086,
+          longitude: -0.1283,
+          placeId: 'ChIJecw644sEdkgRxPOFaQ8B3ik',
+          address: 'Trafalgar Square, London WC2N 5DN',
+          price: 'Free (some exhibitions may charge)',
+          category: 'cultural',
+        },
+        {
+          name: 'Saatchi Gallery',
+          description: 'Contemporary art gallery featuring works by emerging artists',
+          latitude: 51.4907,
+          longitude: -0.1582,
+          placeId: 'ChIJcVKPxckFdkgR8QRdQlyICBs',
+          address: 'Duke of York\'s HQ, King\'s Rd, London SW3 4RY',
+          price: 'Free (some exhibitions may charge)',
+          category: 'cultural',
+        },
+      ],
+    },
+    {
+      name: 'London Music Venues Tour',
+      description: 'Visit iconic music venues and record stores in London',
+      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2',
+      latitude: 51.5331,
+      longitude: -0.122,
+      tripTypes: ['leisure', 'nightlife'],
+      spots: [
+        {
+          name: 'Royal Albert Hall',
+          description: 'Historic concert hall hosting diverse performances from classical to rock',
+          latitude: 51.5009,
+          longitude: -0.1774,
+          placeId: 'ChIJrVxvQcMFdkgRV2n6O3DNm2w',
+          address: 'Kensington Gore, South Kensington, London SW7 2AP',
+          price: 'Varies by performance',
+          category: 'entertainment',
+        },
+        {
+          name: 'Rough Trade East',
+          description: 'Iconic independent record store with live performances',
+          latitude: 51.5235,
+          longitude: -0.0719,
+          placeId: 'ChIJU7HQG7gcdkgRLkV_NQdqtCw',
+          address: 'Old Truman Brewery, 91 Brick Ln, London E1 6QL',
+          price: 'Free entry',
+          category: 'shopping',
+        },
+        {
+          name: 'Ronnie Scott\'s Jazz Club',
+          description: 'World-famous jazz club in Soho',
+          latitude: 51.5133,
+          longitude: -0.1323,
+          placeId: 'ChIJK0RF-c4EdkgRVA1pBHI0GUQ',
+          address: '47 Frith St, Soho, London W1D 4HT',
+          price: '£15-£45 depending on performance',
+          category: 'nightlife',
+        },
+      ],
+    },
+    {
+      name: 'Literary London',
+      description: 'Explore places associated with famous authors and literary works',
+      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2',
+      latitude: 51.5197,
+      longitude: -0.1182,
+      tripTypes: ['cultural', 'leisure'],
+      spots: [
+        {
+          name: 'British Library',
+          description: 'National library with over 150 million items including historical manuscripts',
+          latitude: 51.5299,
+          longitude: -0.1271,
+          placeId: 'ChIJ45tYA8YadkgRqAEOqgNjDlY',
+          address: '96 Euston Rd, London NW1 2DB',
+          price: 'Free (special exhibitions may charge)',
+          category: 'cultural',
+        },
+        {
+          name: 'Shakespeare\'s Globe',
+          description: 'Reconstruction of the Globe Theatre, associated with William Shakespeare',
+          latitude: 51.5081,
+          longitude: -0.097,
+          placeId: 'ChIJwQYX1WUDdkgRs997AN8YVD8',
+          address: '21 New Globe Walk, London SE1 9DT',
+          price: '£17 for tours, performances vary',
+          category: 'cultural',
+        },
+        {
+          name: 'Daunt Books Marylebone',
+          description: 'Beautiful Edwardian bookshop specializing in travel literature',
+          latitude: 51.5177,
+          longitude: -0.1511,
+          placeId: 'ChIJTS8qFdIadkgR_fwPPCbw-78',
+          address: '84 Marylebone High St, London W1U 4QW',
+          price: 'Free entry',
+          category: 'shopping',
+        },
+      ],
+    },
+    {
+      name: 'London Film Locations Tour',
+      description: 'Visit famous filming locations across London',
+      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2',
+      latitude: 51.5095,
+      longitude: -0.1367,
+      tripTypes: ['leisure', 'cultural'],
+      spots: [
+        {
+          name: 'Platform 9¾ at King\'s Cross',
+          description: 'Famous Harry Potter filming location with a trolley disappearing into the wall',
+          latitude: 51.5322,
+          longitude: -0.1240,
+          placeId: 'ChIJ5YQ3UcgadkgRDj16DV7DdF0',
+          address: 'King\'s Cross Station, London N1 9AP',
+          price: 'Free (shop purchases optional)',
+          category: 'cultural',
+        },
+        {
+          name: 'Notting Hill Bookshop',
+          description: 'The bookshop that inspired the film "Notting Hill"',
+          latitude: 51.5096,
+          longitude: -0.1968,
+          placeId: 'ChIJFzxQrSUQdkgR8za9QnJ5Fw0',
+          address: '13 Blenheim Crescent, Notting Hill, London W11 2EE',
+          price: 'Free entry',
+          category: 'shopping',
+        },
+        {
+          name: 'Millennium Bridge',
+          description: 'Featured in Harry Potter and several other films',
+          latitude: 51.5095,
+          longitude: -0.0986,
+          placeId: 'ChIJZWKsms4EdkgR7q797o3AXC8',
+          address: 'Thames Embankment, London SE1 9JE',
+          price: 'Free',
+          category: 'outdoor',
+        },
+      ],
+    },
+    {
+      name: 'Secret London',
+      description: 'Discover hidden gems and lesser-known spots in London',
+      userId: 'user_2NNKqwRxDrfYeEBg3JdDBdW4gV2',
+      latitude: 51.5225,
+      longitude: -0.1089,
+      tripTypes: ['adventure', 'leisure'],
+      spots: [
+        {
+          name: 'Postman\'s Park',
+          description: 'Small park with memorial plaques honoring everyday heroes',
+          latitude: 51.5168,
+          longitude: -0.0977,
+          placeId: 'ChIJS92FbU8DdkgRgT7x3lQh3FA',
+          address: 'King Edward St, London EC1A 7BT',
+          price: 'Free',
+          category: 'outdoor',
+        },
+        {
+          name: 'The John Soane Museum',
+          description: 'Historic house museum with eclectic collections',
+          latitude: 51.5169,
+          longitude: -0.1174,
+          placeId: 'ChIJjUV18tAEdkgRUDgt09hFH_Y',
+          address: '13 Lincoln\'s Inn Fields, London WC2A 3BP',
+          price: 'Free',
+          category: 'cultural',
+        },
+        {
+          name: 'Wilton\'s Music Hall',
+          description: 'The oldest grand music hall in the world',
+          latitude: 51.5099,
+          longitude: -0.0705,
+          placeId: 'ChIJnxKjgE0DdkgRQYh-7N_POD0',
+          address: '1 Graces Alley, London E1 8JB',
+          price: 'Free to visit, performances vary',
+          category: 'entertainment',
+        },
+      ],
+    },
   ];
 
-  console.log('Creating 5 itineraries with spots...');
+  console.log('Creating 10 itineraries with spots...');
 
   // Create each itinerary and its spots
   for (const itineraryData of itineraries) {
