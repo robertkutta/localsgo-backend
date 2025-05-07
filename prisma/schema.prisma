@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Itinerary {
+  id                Int      @id @default(autoincrement())
+  userId            String
+  name              String
+  description       String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  latitude          Float
+  longitude         Float
+  tripTypes         String[] @default([])
+  derivedCategories String[] @default([])
+  likes             Like[]
+  reports           Report[]
+  reviews           Review[]
+  saves             Save[]
+  spots             Spot[]
+
+  @@index([tripTypes])
+  @@index([derivedCategories])
+}
+
+model Spot {
+  id          Int       @id @unique @default(autoincrement())
+  name        String
+  description String?
+  latitude    Float
+  longitude   Float
+  placeId     String?
+  address     String?
+  price       String?
+  category    String?
+  itineraryId Int
+  updatedAt   DateTime  @updatedAt
+  itinerary   Itinerary @relation(fields: [itineraryId], references: [id], onDelete: Cascade)
+}
+
+model Like {
+  id          Int       @id @default(autoincrement())
+  userId      String
+  itineraryId Int
+  itinerary   Itinerary @relation(fields: [itineraryId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, itineraryId])
+}
+
+model Save {
+  id          Int       @id @default(autoincrement())
+  userId      String
+  itineraryId Int
+  itinerary   Itinerary @relation(fields: [itineraryId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, itineraryId])
+}
+
+model Review {
+  id          Int       @id @default(autoincrement())
+  userId      String
+  itineraryId Int
+  content     String
+  rating      Int
+  createdAt   DateTime  @default(now())
+  itinerary   Itinerary @relation(fields: [itineraryId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, itineraryId])
+}
+
+model Report {
+  id          Int       @id @default(autoincrement())
+  userId      String
+  itineraryId Int
+  reason      String
+  details     String?
+  createdAt   DateTime  @default(now())
+  itinerary   Itinerary @relation(fields: [itineraryId], references: [id], onDelete: Cascade)
+}
